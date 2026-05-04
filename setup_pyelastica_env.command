@@ -36,11 +36,11 @@ source .venv/bin/activate
 
 echo ""
 echo "Upgrading pip..."
-python3 -m pip3 install --upgrade pip setuptools wheel
+python -m pip install --upgrade pip setuptools wheel
 
 echo ""
 echo "Installing requirements..."
-python3 -m pip3 install -r requirements.txt
+python -m pip install -r requirements.txt
 
 echo ""
 echo "=============================================="
