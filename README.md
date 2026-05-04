@@ -8,7 +8,7 @@ This repository includes a one-click environment setup.
 
 Make sure you have in the same folder:
 
-- `multi_wrap_unwinding.py`
+- `2_perv_snapping.py`
 - `requirements.txt`
 - `setup_pyelastica_env.command`
 
