@@ -36,11 +36,11 @@ source .venv/bin/activate
 
 echo ""
 echo "Upgrading pip..."
-python -m pip install --upgrade pip setuptools wheel
+python3 -m pip3 install --upgrade pip setuptools wheel
 
 echo ""
 echo "Installing requirements..."
-python -m pip install -r requirements.txt
+python3 -m pip3 install -r requirements.txt
 
 echo ""
 echo "=============================================="
@@ -51,10 +51,10 @@ echo "Virtual environment is active."
 echo ""
 echo "You can now run your simulation, for example:"
 echo ""
-echo "python multi_wrap_unwinding.py \\"
-echo "  --lambda-bend 2.0 \\"
-echo "  --gamma-twist 1.0 \\"
-echo "  --elongation 0.6 \\"
+echo "python3 2_perv_snapping_final.py \\"
+echo "  --lambda-bend 1.0 \\"
+echo "  --gamma-twist .66 \\"
+echo "  --elongation 0.7 \\"
 echo "  --output-dir outputs"
 echo ""
 echo "To leave the environment later, type:"
