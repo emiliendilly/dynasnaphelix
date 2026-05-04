@@ -92,12 +92,11 @@ zipp==3.23.0
 
 ``` bash
 python multi_wrap_unwinding.py \
-  --lambda-bend 2.0 \
-  --gamma-twist 1.0 \
-  --elongation 0.6 \
+  --lambda-bend 1.0 \
+  --gamma-twist .66 \
+  --elongation 0.7 \
   --output-dir outputs \
-  --extra-unwind-turns 15 \
-  --sim-dt-per-frame 0.4
+  --extra-unwind-turns 19 \
 ```
 
 ------------------------------------------------------------------------
