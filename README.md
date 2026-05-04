@@ -56,7 +56,7 @@ The launcher automatically:
 Once the setup finishes, just run:
 
 ```bash
-python 2_perv_snapping_final.py   --lambda-bend 2.0   --gamma-twist 1.0   --elongation 0.6   --output-dir outputs
+python3 2_perv_snapping_final.py   --lambda-bend 2.0   --gamma-twist 1.0   --elongation 0.6   --output-dir outputs
 ```
 
 ---
