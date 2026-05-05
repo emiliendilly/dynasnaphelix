@@ -1,5 +1,7 @@
 # PyElastica Multi-Wrap Rod Unwinding Simulation
 
+See below for plotting code
+
 ## Quick Setup (Recommended)
 
 This repository includes a one-click environment setup.
@@ -145,6 +147,104 @@ Includes:
 - vtk
 
 ---
+
+## Plotting energetic colormap versus link
+
+This plotting script reads exported frame files from a simulation output folder and produces continuous `s`–`Lk` colormaps with contour lines.
+
+The color quantity is:
+
+```text
+Q(s) = (kappa_1 - kappa0_1)^2 + Lambda*kappa_2^2 + Gamma*kappa_3^2
+```
+
+### Expected folder structure
+
+```text
+outputs/
+├── simulation_parameters.txt
+└── frames_txt/
+    ├── generation_frame_00000.txt
+    ├── target_elongation_frame_00000.txt
+    ├── unwinding_frame_00000.txt
+    └── ...
+```
+
+### Basic usage
+
+From inside the output folder:
+
+```bash
+cd outputs
+python plot_lk_curvature_contour.py
+```
+
+This generates:
+
+```text
+lk_curvature_contour_all.pdf
+lk_curvature_contour_generation.pdf
+lk_curvature_contour_target_elongation.pdf
+lk_curvature_contour_unwinding.pdf
+```
+
+### Plot only one stage
+
+```bash
+python plot_lk_curvature_contour.py --stage unwinding
+```
+
+Available stages:
+
+```text
+generation
+target_elongation
+unwinding
+```
+
+### Use logarithmic color scale
+
+```bash
+python plot_lk_curvature_contour.py --stage unwinding --log-color
+```
+
+### Use rest-subtracted curvature components
+
+By default, only `kappa_1` is rest-subtracted. To use:
+
+```text
+Q = (kappa_1-kappa0_1)^2
+  + Lambda*(kappa_2-kappa0_2)^2
+  + Gamma*(kappa_3-kappa0_3)^2
+```
+
+run:
+
+```bash
+python plot_lk_curvature_contour.py --stage unwinding --rest-subtract-all
+```
+
+### Override material parameters manually
+
+If `simulation_parameters.txt` is missing or you want to override values:
+
+```bash
+python plot_lk_curvature_contour.py \
+  --lambda-bend 2.0 \
+  --gamma-twist 1.0 \
+  --stage unwinding
+```
+
+### Increase contour resolution
+
+```bash
+python plot_lk_curvature_contour.py \
+  --stage unwinding \
+  --contour-levels 25 \
+  --n-s 300
+```
+
+
 
 ## License
 
