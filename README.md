@@ -244,7 +244,61 @@ python plot_lk_curvature_contour.py \
   --n-s 300
 ```
 
+## Plotting energetic colormap versus elongation `z`
 
+This script generates continuous colormaps of the elastic energy density `Q(s)` as a function of curvilinear coordinate `s` and axial elongation `z`.
+
+### What it does
+
+- Reads all frame `.txt` files from `frames_txt/`
+- Computes elongation for each frame:
+
+    z = ||x_right - x_left|| / L
+
+- Builds a continuous 2D field:
+
+    x-axis: s   (along the rod)  
+    y-axis: z   (clamp separation / rod length)  
+    color:  Q(s)
+
+### Output
+
+Generates PDF colormaps:
+
+    z_curvature_contour_all.pdf  
+    z_curvature_contour_generation.pdf  
+    z_curvature_contour_target_elongation.pdf  
+    z_curvature_contour_unwinding.pdf  
+    z_curvature_contour_translation.pdf  
+
+### Usage
+
+    cd outputs
+    python plot_z_curvature_contour.py
+
+### Key options
+
+Plot a single stage:
+
+    python plot_z_curvature_contour.py --stage translation
+
+Use log-scale color:
+
+    python plot_z_curvature_contour.py --log-color
+
+Use the fully rest-subtracted energy:
+
+    python plot_z_curvature_contour.py --rest-subtract-all
+
+Increase contour and interpolation resolution:
+
+    python plot_z_curvature_contour.py --contour-levels 25 --n-s 300
+
+### Notes
+
+- Frames are automatically sorted by increasing elongation `z`
+- Requires position columns `x`, `y`, `z` and curvature fields
+- Uses `Lambda` and `Gamma` from `simulation_parameters.txt` unless overridden
 
 ## License
 
