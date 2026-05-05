@@ -51,15 +51,34 @@ The launcher automatically:
 
 ---
 
-## Running the simulation
+## Running the simulation for perversion antiperversion snapping at fixed elongation : n experiment
 
-Once the setup finishes, just run:
+Once the setup finishes, just run for n experiment at fixed elongation:
 
 ```bash
 python3 2_perv_snapping_final.py   --lambda-bend 1.0   --gamma-twist .666  --elongation 0.7  --extra-unwind-turns 19 --output-dir outputs 
 ```
 
+## Example of usage: fixed link, varying axial elongation `z`
+
+To run a single simulation at one fixed target link, set `--link-points 1` and use the same value for `--link-min` and `--link-max`.
+
+Example for fixed target link `Lk = -3.5`, then translating from `z = 0.5` to `z = 0.1`:
+
+```bash
+python link_stop_sweep.py \
+  --lambda-bend 2.0 \
+  --gamma-twist 1.0 \
+  --link-min -12.5 \
+  --link-max -12.5 \
+  --link-points 1 \
+  --z-init 0.5 \
+  --z-final 0.1 \
+  --output-dir outputs_fixed_link_Lk_minus_12p5
+```
 ---
+
+
 
 ## Manual setup (alternative)
 
